@@ -1,13 +1,9 @@
 alf_template <- function(protStart = 200, seed = sample.int(99999, 1)){
+  #sett_list <- list(protStart = protStart, subModel = "CPAM", seed = seed)
   mod_sett <- "
     # parameters for ALF
     # 
     # Daniel Dalquen, 2011
-  
-    # to run ALF with this parameter file, call
-    # bin/alfsim
-    # or, if you previously installed ALF, simply
-    # alfsim
   
     SetRand(${{seed}}): # use this with any number, if you want reproducable results
   

@@ -4,8 +4,13 @@ Title: New Package
 Author: Russell Dinnage <r.dinnage@gmail.com>
 Maintainer: Russell Dinnage <r.dinnage@gmail.com>
 Depends:
-    R (>= 3.0.0), whisker
-Description: This package provides an interface between R and the Artificial Life Framework (ALF), software which produced complex simulations of genome evolution across phylogenetic trees.
+    R (>= 3.0.0),
+    whisker,
+    Biostrings,
+    ape
+Description: This package provides an interface between R and the Artificial
+    Life Framework (ALF), software which produced complex simulations of genome
+    evolution across phylogenetic trees.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyLoad: yes
