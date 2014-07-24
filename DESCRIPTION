@@ -5,6 +5,7 @@ Author: Russell Dinnage <r.dinnage@gmail.com>
 Maintainer: Russell Dinnage <r.dinnage@gmail.com>
 Depends:
     R (>= 3.0.0),
+Imports:
     whisker,
     Biostrings,
     ape
