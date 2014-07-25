@@ -122,7 +122,7 @@ load_ALF <- function(simdir, which_specs = NULL, return_tree = TRUE, true_align 
   dna <- lapply(paste0(simdir, "/DB/", tl[which_specs]), readDNAStringSet, format="fasta", use.names=TRUE)
   results[["dna"]] <- dna
   names(results$dna) <- labels
-  if (tree) {
+  if (return_tree) {
     tree <- read.tree(paste0(simdir, "/RealTree.nwk"))
     results[["tree"]] <- drop.tip(tree, which(!tree$tip.label %in% labels))
   }
