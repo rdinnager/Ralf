@@ -4,7 +4,7 @@
 \title{a function to create an ALF configuration file (*.drw)}
 \usage{
 run_ALF(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate,
-  dir, ALF_dir)
+  dir, ALF_dir, capture_prog = FALSE)
 }
 \arguments{
 \item{simname}{Name for the simulation to be simulated}
@@ -27,6 +27,8 @@ to accumulate 1 changed amino acid out of every 100 amino acids (codon based evo
 \item{dir}{Directory where the simulated genome should be stored}
 
 \item{ALF_dir}{Directory containing the \code{alfsim} executable file}
+
+\item{capture_prog}{Should the progress of ALF be sent to stdout (so it can be capture by \code{knitr} for example)?}
 }
 \value{
 A character vector containing the path to the directory in which the ALF simulation saves its output.
