@@ -93,14 +93,19 @@ gen_ALF_drw <- function(simname, nspec, ngenes, mingenelen, PAMunits, brate, dra
 #' @param indelrate Rate at which insertions and deletion are incorporated into genomes
 #' @param dir Directory where the simulated genome should be stored
 #' @param ALF_dir Directory containing the \code{alfsim} executable file
+#' @param capture_prog Should the progress of ALF be sent to stdout (so it can be capture by \code{knitr} for example)?
 #' @return A character vector containing the path to the directory in which the ALF simulation saves its output.
 #' @export
 run_ALF <- function(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate, dir, 
-                    ALF_dir) {
+                    ALF_dir, capture_prog = FALSE) {
   sdir <- paste0(dir, "/", simname)
   filename <- paste0(dir, "/", simname, ".drw")
   cat(gen_ALF_drw(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate, dir), file = filename)
-  system(paste0(ALF_dir, "/alfsim ", filename))
+  comm <- paste0(ALF_dir, "/alfsim ", filename)
+  if (capture_prog){
+    comm <- paste(comm, "2>&1") 
+  }
+  system(comm)
   return(sdir)
 }
 
