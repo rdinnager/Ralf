@@ -74,11 +74,13 @@ ALF_template <- function() {
 #' @param drate Death rate for Birth-Death phylogeny simulation
 #' @param indelrate Rate at which insertions and deletion are incorporated into genomes
 #' @param dir Directory where the simulated genome should be stored
+#' @param tree_file Filename (full path) for Newick tree file to simulate over
+#' @param tree_type Tree type to simulate over: BDTree, ToLSample, or Custom
 #' @export
 gen_ALF_drw <- function(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate, dir) {
   parms <- list(simname = simname, nspec = nspec, ngenes = ngenes, mingenelen = mingenelen,
                 PAMunits = PAMunits, brate = brate, drate = drate, indelrate = indelrate,
-                dir = dir)
+                dir = dir, treefile = tree_file, tree_type = tree_type)
   whisker.render(ALF_template(), parms) 
 }
 
@@ -93,12 +95,14 @@ gen_ALF_drw <- function(simname, nspec, ngenes, mingenelen, PAMunits, brate, dra
 #' @param drate Death rate for Birth-Death phylogeny simulation
 #' @param indelrate Rate at which insertions and deletion are incorporated into genomes
 #' @param dir Directory where the simulated genome should be stored
+#' @param tree_file Filename (full path) for Newick tree file to simulate over
+#' @param tree_type Tree type to simulate over: BDTree, ToLSample, or Custom
 #' @param ALF_dir Directory containing the \code{alfsim} executable file
 #' @param capture_prog Should the progress of ALF be sent to stdout (so it can be capture by \code{knitr} for example)?
 #' @return A character vector containing the path to the directory in which the ALF simulation saves its output.
 #' @export
-run_ALF <- function(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate, dir, 
-                    ALF_dir, capture_prog = FALSE) {
+run_ALF <- function(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate, dir,
+                    treefile = tree_file, tree_type = tree_type, ALF_dir, capture_prog = FALSE) {
   sdir <- paste0(dir, "/", simname)
   filename <- paste0(dir, "/", simname, ".drw")
   cat(gen_ALF_drw(simname, nspec, ngenes, mingenelen, PAMunits, brate, drate, indelrate, dir), file = filename)
