@@ -22,14 +22,15 @@ ALF_template <- function() {
   blocksize := 3:
     
   # parameters concerning the species tree
-  treeType := 'BDTree';
+  treeType := '{{{tree_type}}}';
   birthRate := {{brate}};
   deathRate := {{drate}};
   NSpecies := {{nspec}};
   ultrametric := true;
   mutRate := {{PAMunits}};
   scaleTree := false;
-  
+  treeFile := '{{{tree_file}}}'; 
+
   # parameters concerning the substitution models
   substModels := [SubstitutionModel('CPAM')];
   indelModels := [IndelModel({{indelrate}}, ZIPF, [1.821], 50)];
